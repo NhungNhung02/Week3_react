@@ -1,62 +1,40 @@
 import { useState } from "react";
-import "./UserForm.css";
+import "./ControlledForm.css";
 
-function UserForm() {
-    const [user, setUser] = useState({
-        name: "",
-        email: "",
-        age: ""
-    });
-
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setUser({ ...user, [name]: value });
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(user);
-    };
+function ControlledForm() {
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
 
     return (
-        <div className="container">
-            <h2>Form thông tin người dùng</h2>
+        <div className="form-container">
+            <h2>Bài 3 – Controlled Form</h2>
 
-            <form className="form" onSubmit={handleSubmit}>
-                <label>
-                    Họ tên
-                    <input
-                        type="text"
-                        name="name"
-                        value={user.name}
-                        onChange={handleChange}
-                    />
-                </label>
+            <div className="form-group">
+                <label>Tên</label>
+                <input
+                    type="text"
+                    placeholder="Nhập tên"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                />
+            </div>
 
-                <label>
-                    Email
-                    <input
-                        type="email"
-                        name="email"
-                        value={user.email}
-                        onChange={handleChange}
-                    />
-                </label>
+            <div className="form-group">
+                <label>Email</label>
+                <input
+                    type="email"
+                    placeholder="Nhập email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                />
+            </div>
 
-                <label>
-                    Tuổi
-                    <input
-                        type="number"
-                        name="age"
-                        value={user.age}
-                        onChange={handleChange}
-                    />
-                </label>
-
-                <button type="submit">Gửi</button>
-            </form>
+            <div className="result">
+                <p><strong>Tên:</strong> {name}</p>
+                <p><strong>Email:</strong> {email}</p>
+            </div>
         </div>
     );
 }
 
-export default UserForm;
+export default ControlledForm;
