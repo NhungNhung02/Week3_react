@@ -3,14 +3,18 @@
 // import Footer from "./components/Btap1/Footer";
 // import Btap1 from "./components/Btap1";
 // import Counter from "./components/Btap2/Counter";
+// import Form from "./components/Btap3/Form";
+
 import React from "react";
-import Form from "./components/Btap3/Form";
+import Btap4 from "./components/Btap4";
 
 function App() {
   return (
     <div>
-      <Form />
-      {/* <Counter /> */} // Bài tập 2
+      {/* <Form /> */}
+      <Btap4 />
+
+      {/* <Counter /> */}
     </div>
   );
 }
